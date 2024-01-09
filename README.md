@@ -3,4 +3,5 @@ PLAYDATA
 
 | 일차 | 주제 |
 | ----- | ------- |
-| 1 ~ 5 | Python Programming |
+| 1 ~ 7 | Python Programming |
+| 8 ~  | Crawling |
