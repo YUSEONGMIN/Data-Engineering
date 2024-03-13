@@ -1,5 +1,6 @@
 # Data-Engineering
-PLAYDATA
+
+PLAYDATA 엔코아 데이터엔지니어링 과정
 
 | 일차 | 주제 |
 | ----- | ------- |
