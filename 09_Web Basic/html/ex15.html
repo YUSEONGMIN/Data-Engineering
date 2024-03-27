@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getForm(form) {
+            alert("name: " + form.name.value);
+        }
+    </script>
+
+    <!-- submit 버튼을 누르면 getForm 함수 실행 -->
+    <form name="myForm" action="" method="get" onsubmit="getForm(this);">
+        <div>
+            <label for="name"> name: </label>
+            <!-- required: 필수적으로 입력할 때 -->
+            <input type="text" id="name" name="name" placeholder="What is your name?" required>
+        </div>
+
+        <div>
+            <label for="pwd"> password: </label>
+            <!-- password 타입은 안보이게 입력 -->
+            <input type="password" id="pwd" name="pwd" required>
+        </div>
+        <div>
+            <label for="email"> email: </label>
+            <input type="email" id="email" name="email" placeholder="example@gmail.com">
+        </div>
+
+        <div>
+            <label for="phone"> phone: </label>
+            <input type="tel" id="phone" name="phone" placeholder="(123) 123-1234">
+        </div>
+
+        <div>
+            <label for="birth"> birthday: </label>
+            <input type="date" id="birth" name="birth">
+        </div>
+
+        <div>
+            <label for="age"> age: </label>
+            <input type="number" id="age" name="age" min="0" max="100">
+        </div>
+
+        <div>
+            <!-- 키-밸류 형태로 서버에 데이터 전달 -->
+            <!-- 키는 title, 밸류는 value -->
+            <label for="title"> title: </label>
+            <label for="Mr.">Mr.</label>
+            <input type="radio" id="Mr." name="title" value="Mr." checked>
+            <label for="Mr.">Mrs.</label>
+            <input type="radio" id="Mrs." name="title" value="Mrs.">
+            <label for="PhD.">PhD.</label>
+            <input type="radio" id="PhD." name="title" value="PhD.">
+        </div>
+
+        <div>
+            <label for="payment"> payment: </label>
+            <select id="payment" name="payment">
+                <option value="visa">visa</option>
+                <option value="mastercard">mastercard</option>
+                <option value="giftcard">giftcard</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="subscribe"> subscribe: </label>
+            <input type="checkbox" id="subscribe" name="subscribe">
+        </div>
+
+        <div>
+            <input type="reset">
+            <input type="submit">
+        </div>
+    </form>
+</body>
+</html>

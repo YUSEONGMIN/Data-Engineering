@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3> 오디오 No 자동 실행 </h3>
+    <audio controls src="./video/wave.mp4"></audio>
+
+    <h3> 오디오 자동 실행 </h3>
+    <audio controls autoplay src="./video/wave.mp4"></audio>
+
+    <h3> 오디오 자동 실행 & 음소거 </h3>
+    <audio controls autoplay muted src="./video/wave.mp4"></audio>
+    
+    <h3> 오디오 자동 실행 & 음소거 & 연속실행</h3>
+    <audio controls autoplay muted loop src="./video/wave.mp4"></audio>
+
+    <h3> 멀티 리소스 오디오 </h3>
+    <audio controls autoplay>
+        <source src="./video/wave1.mp4">
+        <source src="./video/wave2.mp4">
+        <source src="./video/wave3.mp4">
+        This browser does not support the audio tag <!-- 오디오 태그를 지원하지 않는 브라우저의 경우 출력 -->
+    </audio>
+    
+</body>
+</html>

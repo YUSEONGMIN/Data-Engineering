@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button style="background-color: lightblue; color: green">
+        click me 1
+    </button>
+    <!-- border-radius: 가장자리 둥글게 -->
+    <button style="background-color: lightblue; color: green; border-radius: 5px">
+        click me 2
+    </button>
+    <!-- 페이지 이동 -->
+    <a href="https://www.naver.com" target="_blank"">
+        <button style="background-color: lightblue; color: red; border-radius: 5px">
+            click me 3
+        </button>    
+    </a>
+    <!-- onclick: 눌렀을 때 실행되는 함수 -->
+    <button onclick="doSomething();" style="background-color: lightblue; color: blue; border-radius: 5px">
+        click me 4
+    </button>
+    <script>
+        function doSomething() {
+            alert("코딩");
+        }
+    </script>
+
+</body>
+</html>
