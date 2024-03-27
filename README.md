@@ -13,6 +13,7 @@ PLAYDATA 엔코아 데이터엔지니어링 과정
 | 34 - 38 | Semi-Project |
 | 39 - 41 | Java Programming |
 | 42 - 49 | Spring Boot |
+| 46 - 47 | Web Basic |
 | 53 - 54 | Linux |
 | 55 - 58 | Data Storage |
 | 59 - 62 | Data Processing |
