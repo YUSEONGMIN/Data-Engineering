@@ -7,3 +7,9 @@
 | 31 | Transformer |
 | 32 | GAN을 이용한 생성모델 |
 | 33 | YOLO를 이용한 Object Detection |
+
+28일차
+-
+
+29일차
+-
