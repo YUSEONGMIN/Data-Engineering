@@ -1,0 +1,31 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> -->
+
+{{> /layout/header}}
+<body>
+
+    <h1> Hello World </h1>
+
+    <p> {{name}}입니다. </p>
+
+    {{company}}에서 일하기
+    <br>
+    <!-- {}를 2개 쓰면 렌더링되지 않음 -->
+    {{{company}}}에서 일하고 있습니다.
+    <br>
+    <!-- {}를 3개 쓰면 <h3></h3>이 렌더링됨 -->
+
+    {{#person}}
+    <p>사람입니다.</p>
+    {{/person}}
+    <!-- 사람은 출력되지 않음 -> mustache가 전달하지 못함 -->
+    <!-- false일 때는 만들어주지 않고, true일 때만 전달 -->
+
+<!-- </body>
+</html> -->
+{{> /layout/footer}}

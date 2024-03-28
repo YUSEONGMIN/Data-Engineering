@@ -1,0 +1,27 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> -->
+<!-- 위 부분은 book, bookList, hello 동일 따라서 layout을 통해 하나로 합치기 -->
+
+{{> /layout/header}}
+<body>
+    <h1> Book List </h1>
+    {{#bookList}}
+        <p>Book ID: {{bookId}}</p>
+        <p>Book Title: {{bookTitle}}</p>
+        {{#isbn}}
+            <p>isbn: {{isbn}}</p>
+        {{/isbn}}
+        {{^isbn}}
+            <p>isbn: {{isbn}}은 거짓 </p>
+        {{/isbn}}
+        <p>Book Price: {{price}}</p>
+        <hr> <!-- 선 그리기 -->
+    {{/bookList}}
+<!-- </body>
+</html> -->
+{{> /layout/footer}}

@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  db: # 서비스 이름: db, mysql 등 여러개 가능
+    image: mysql # mysql 이미지 다운
+    restart: always
+    command:
+      - --character-set-server=utf8mb4 # utf8로 인코딩
+      - --collation-server=utf8mb4_unicode_ci # 즉, mysql 서버는 모두 utf8로 인코딩할 것
+    volumes:
+      - ./database:/var/lib/mysql # :을 기준으로 왼쪽은 현재 폴더의 database 폴더. 오른쪽은 리눅스. 서로 연결
+    environment:
+      MYSQL_ROOT_PASSWORD: "root1234"
+      MYSQL_DATABASE: "examplesdb"
+      MYSQL_USER: "urstory"
+      MYSQL_PASSWORD: "u1234"
+    ports:
+      - "3306:3306" # mysql 포트는 보통 3306. 외부에서 사용 가능하도록
+
+# database 폴더를 삭제하면 mysql 삭제됨 (설치/삭제 쉬움)

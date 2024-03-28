@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Login Page</h1>
+    <!-- <p>로그인한 사용자들만 접속이 가능합니다.</p> -->
+    <form action="/v1/user/login" method="post">
+        <input type="text" name="userId" placeholder="아이디를 입력하세요.">
+        <br>
+        <input type="password" name="userPassword" placeholder="비밀번호를 입력하세요.">
+        <br>
+        <input type="submit" value="로그인">
+    </form>
+    <a href="/v1/user/joinPage">신규 가입</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# JPA는 불러온 데이터를 처리할 때, mysql 드라이브는 데이터베이스와 연결할 때 필요
+# mysql의 데이터베이스와 연결하기 위한 환경설정
+# properties 파일은 키-밸류 형태이며, yaml 파일과 비슷하나 읽기가 어려움
+# yaml 파일의 특징은 인덴트를 씀
+spring:
+    output:
+        ansi:
+            enabled: always
+    # 데이터베이스 설정
+    datasource:
+    # mysql의 포트번호: 3306, 데이터베이스 이름: examplesdb, ?이후 쿼리문: key=value, userSSL=false, allowPublicKey...=true, ...
+        url: jdbc:mysql://127.0.0.1:3306/examplesdb?userSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+        username: urstory
+        password: u1234
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    # jpa 설정
+    jpa:
+        hibernate:
+            ddl-auto: update # 설정이 바뀔 때만 자동으로 변경
+        properties:
+            hibernate:
+                "[show_sql]": true
+                "[format_sql]": true

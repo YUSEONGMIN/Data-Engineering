@@ -1,0 +1,22 @@
+{{> /layout/header}}
+    <h1> Spring Boot with Mustache </h1>
+
+    {{#book}} <!-- book 이라는 객체가 있으면 true -->
+    <!-- 전달받은 객체는 dto, 그러므로 false -->
+    <p>Book ID: {{bookId}}</p>
+    <p>Book Title: {{bookTitle}}</p>
+    
+    <!-- boolean -->
+    {{#isbn}}
+        <p>isbn: {{isbn}}</p> <!-- true일 때만 출력 -->
+    {{/isbn}}
+    {{^isbn}}
+        <p>isbn: {{isbn}}은 거짓 </p> <!-- false일 때만 출력 -->
+    {{/isbn}}
+
+    <p>Book Price: {{price}}</p>
+    {{/book}}
+    {{^book}}
+        <p>책이 없다.</p>
+    {{/book}}
+{{> /layout/footer}}

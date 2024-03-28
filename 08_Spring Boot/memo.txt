@@ -1,0 +1,5 @@
+
+
+src - main  - java: 프로그램
+            - resources: 브라우저에 전달해야 될 문서
+    - test: 내가 만든 프로그램 (main은 전체 프로그램)

@@ -1,0 +1,31 @@
+server:
+    servlet:
+        # 한글 깨짐 처리
+        encoding:
+            force-response: true # 한글 깨짐 방지를 위한 강제 인코딩
+
+spring: 
+    output:
+        ansi:
+            enabled: always # output 로고
+    # mustache 설정
+    mustache:
+        prefix: classpath:templates/ # classpath는 resources 폴더 -> 즉, templates 폴더에 mustache 파일 저장
+        check-template-location: true
+        suffix: .html # 확장자: .mustache -> html 확장자도 가능
+        servlet:
+            cache: false
+    # 데이터베이스 설정
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306/examplesdb?userSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+        username: urstory
+        password: u1234
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    # jpa 설정
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                "[show_sql]": true
+                "[format_sql]": true
