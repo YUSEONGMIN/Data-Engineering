@@ -9,7 +9,6 @@ public class Mammalia implements Biology {
 
     @Override
     public void breath() {
-        // TODO Auto-generated method stub
-        System.out.println("폐로 숨을 쉰다.");
+         System.out.println("폐로 숨을 쉰다.");
     }
 }

@@ -34,38 +34,39 @@ public class Airplane implements Abstract {
 
     public boolean dodge(boolean isAtk) {
         if (isAtk == false) {
-            System.out.printf(this.name+" 회피성공\n");
+            System.out.printf(this.name + " 회피성공\n");
             return true;
         } else {
             // System.out.printf(this.name+" 회피실패\t");
             return false;
         }
-        }
+    }
 
     @Override
     public boolean atk() {
         double succes = Math.random();
-        System.out.printf(this.name + " 공격 / 확률: " + Math.round(succes*100)/100.0 +"\n");
+        System.out.printf(this.name + " 공격 / 확률: " + Math.round(succes * 100) / 100.0 + "\n");
         if (succes >= 0.5) {
-            System.out.printf(this.name+" 공격성공(+4)\t");
+            System.out.printf(this.name + " 공격성공(+4)\t");
             this.health += 4;
             if (this.health >= 30) {
                 this.health = 30;
-                }
-                return true;
-                }
-                System.out.printf(this.name+" 공격실패\t");
-                return false;
-                }
+            }
+            return true;
+        }
+        System.out.printf(this.name + " 공격실패\t");
+        return false;
+    }
 
     @Override
     public boolean def(boolean isDodge) throws Exception {
-            System.out.printf(this.name+" 체력감소(-10)\n");
-            this.health -= 10;
-            if (this.health <= 0) {
-                System.err.printf(this.name+" 체력: " + this.health +"\t");
-                System.err.printf(this.name+" 패배. 게임종료");
-                throw new Exception();
-            } return true;
+        System.out.printf(this.name + " 체력감소(-10)\n");
+        this.health -= 10;
+        if (this.health <= 0) {
+            System.err.printf(this.name + " 체력: " + this.health + "\t");
+            System.err.printf(this.name + " 패배. 게임종료");
+            throw new Exception();
+        }
+        return true;
     }
 }

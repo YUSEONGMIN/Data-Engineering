@@ -10,7 +10,7 @@ public class Throw { // 에러를 외부에서 처리
             int result = 10/i;
             System.out.println("result: " + result);
         } catch (Exception e) {
-            // TODO: handle exception
+            // handle exception
             System.out.println("isError2 > Exception >" + e);
         } 
     }
@@ -31,7 +31,7 @@ public class Throw { // 에러를 외부에서 처리
             System.out.println("=== isError2 ===");
             isError2(0); // 이걸 isError1 보다 먼저 한다면 모두 출력
         } catch (Exception e) {
-            // TODO: handle exception
+            // handle exception
             System.out.println("main > Exception > " + e);
         }
 

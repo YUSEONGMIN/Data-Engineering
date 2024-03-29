@@ -12,7 +12,7 @@ public class MyException {
             sayNick("바보"); // 오류 발생. 아래 스킵
             sayNick("토끼");
         } catch (Exception e) {
-            // TODO: handle exception
+            // handle exception
             System.err.println("오류 발생");
         }
     }

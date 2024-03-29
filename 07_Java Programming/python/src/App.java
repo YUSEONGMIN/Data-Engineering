@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,30 +30,32 @@ public class App {
         // String y = "Hello World";
 
         // bool -> int
-        //  삼항 다항식
+        // 삼항 다항식
         int x1 = x ? 1 : 0;
+        System.out.println(x1);
 
         // string -> int
         String y = "10";
         int y1 = Integer.parseInt(y);
+        System.out.println(y1);
 
         // // 실행을 하지 않아도 경고
-        // For input string: "aa" 
+        // For input string: "aa"
         // String z = "aa";
         // int z1 = Integer.parseInt(z);
 
         // array -> int[]
         // array는 크기를 미리 정의
-        int[] arr1 = {1,2,3,4,5,6,7}; // 5개를 미리 선언한 것과 같음
+        int[] arr1 = { 1, 2, 3, 4, 5, 6, 7 }; // 5개를 미리 선언한 것과 같음
+        System.out.println(Arrays.toString(arr1));
 
         // for(int i=0; i<5; i++) {
-        //     System.out.println(arr1[i]);
+        // System.out.println(arr1[i]);
         // }
 
         // for(int i=0; i<arr1.length; i++) {
-        //     System.out.println(arr1[i]);
+        // System.out.println(arr1[i]);
         // }
-
 
         // 리스트는 값 추가 가능
         List<Integer> lst1 = new ArrayList<>();
@@ -68,8 +71,6 @@ public class App {
         dic.put("name", "홍길동");
         dic.put("age", 11); // Object는 다 가능
 
-
-
         // System.out.println("Hello, World!");
         // System.out.println(x);
         // System.out.println(y);
@@ -82,6 +83,6 @@ public class App {
         // System.out.println(lst1.get(0)); // 리스트는 get 이용
         System.out.println(dic.get("name"));
         System.out.println(dic.get("age"));
-        
+
     }
 }

@@ -1,4 +1,5 @@
 package Reminder;
+
 /*
 # 사용해야할 기술들
 - 객체지향 프로그래밍
@@ -29,7 +30,7 @@ public class Main {
         Airplane A1 = new Airplane("A1");
         Airplane B1 = new Airplane("B1");
 
-        for (int i=0; i<20; i++) {
+        for (int i = 0; i < 20; i++) {
             System.out.println("==========================================");
             System.out.printf("%s 체력: %d\t", A1.name, A1.health);
             System.out.printf("%s 체력: %d\n", B1.name, B1.health);
@@ -54,7 +55,7 @@ public class Main {
                 }
             } catch (Exception e) {
                 break;
-                }    
             }
         }
+    }
 }
