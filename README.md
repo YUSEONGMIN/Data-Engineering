@@ -4,7 +4,7 @@ PLAYDATA 엔코아 데이터엔지니어링 과정
 
 | 일차 | 주제 |
 | ----- | ------- |
-| 1 -5 | [Python Programming](./01_Python%20Programming/Python%20Programming.md) |
+| 1 -5 | [Python Programming](./01_Python%20Programming/README.md) |
 | 6 - 7 | Data Collection |
 | 8 - 11 | Database(SQL) |
 | 12 - 24 | Advanced Analysis |

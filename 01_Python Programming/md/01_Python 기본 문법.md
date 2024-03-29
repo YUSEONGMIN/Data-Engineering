@@ -1,10 +1,10 @@
-### [전체 목차](../README.md)
-### [이전 페이지](./Python%20Programming.md)
+### [전체 목차](../../README.md)
+### [이전 페이지](../README.md)
 
 # 1 일차
 Python 실습 환경 구성과 기본 문법  
 
-Python은 `Interpreter` 언어이다.
+`Python은 Interpreter 언어이다.`
 
 ## 목차
 
@@ -95,4 +95,4 @@ print(f"나이: {age}")
 
 
 ### [목차로 돌아가기](#목차)
-## [이전 페이지](./Python%20Programming.md)
+## [이전 페이지](../README.md)
