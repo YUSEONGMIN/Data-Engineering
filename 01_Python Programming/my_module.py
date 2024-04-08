@@ -2,8 +2,10 @@
 
 __version__ = 1.0
 
+
 def greet(name):
     return f"{name}님 안녕하세요"
+
 
 class Person:
 
@@ -13,6 +15,7 @@ class Person:
 
     def __str__(self):
         return f"이름: {self.name}, 나이: {self.age}"
+
 
 print("my_module.__name__:", __name__)
 

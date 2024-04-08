@@ -1,6 +1,10 @@
 # run.py에서 my_module의 함수를 사용
 import my_module as mm
 
+print("__name__:", __name__)
+
+print("덧셈:", c.plus(100, 200))
+
 txt = mm.greet("홍길동")
 print(txt)
 
