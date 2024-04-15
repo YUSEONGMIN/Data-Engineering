@@ -14,10 +14,7 @@
 
 `Python은 Interpreter 언어이다.`
 
-### 목차
-
 - 변수이름 관례 종류
-- 값 대입/할당 연산자
 - Slicing
 - Format string 생성
 - string 주요 메소드
@@ -31,18 +28,12 @@
 [3-1 일차: 함수](./md/03_함수.md)
 -
 
-### 목차
-
-- Positional/Keyword argument
 - 가변인자 파라미터
-- 지역/전역변수
 - 람다 표현식
 - sort, filter, map
 
 [3-2 일차: 클래스](./md/03_클래스.md)
 -
-
-### 목차
 
 - Instance & Class
 - Attribute & Method
@@ -50,16 +41,21 @@
 - 데코레이터
 - 상속
 - 메소드 재정의
-- 특수 메소드
-
 
 [4 일차: 모듈, 패키지, 라이브러리](./md/04_모듈.md)
 -
 
-[5 일차: 예외 처리, 입출력](./md)
--
+- `모듈: 함수(클래스)를 작성한 .py 스크립트 파일`
+- `패키지(라이브러리): 모듈들을 모아 놓은 디렉토리(폴더)`
+
+[5 일차: 예외 처리, 입출력](./md/05_예외처리.md)
+- 
 
 ### 목차
+- Exception handling
+- finally
+- raise
+
 
 
 
