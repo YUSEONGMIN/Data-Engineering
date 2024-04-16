@@ -2,16 +2,31 @@
 ### [이전 페이지](../README.md)
 
 # 8 일차
-DDL
-
-`BeautifulSoup`
+`DDL`
 
 ## 목차
 
-- [BeautifulSoup](#beautifulsoup)
+- [MySQL](#mysql)
 
 
-## [BeautifulSoup](#목차)
+## [MySQL](#목차)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
