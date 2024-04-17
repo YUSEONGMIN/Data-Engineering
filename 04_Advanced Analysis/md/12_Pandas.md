@@ -3,16 +3,26 @@
 
 # 12 일차
 
-`Pandas`, `Series`, `DataFrame`
+`Series`, `DataFrame`
 
 ## 목차
 
 - [Pandas](#pandas)
-    - Series
-        - Indexing
-        - Slicing
+- [Series](#series)
+    - Indexing
+    - Slicing
 - [벡터화(연산)](#벡터화연산)
 - [Boolean 인덱싱](#boolean-인덱싱)
+- [Series 메소드, 속성](#series-메소드-속성)
+- [결측치](#결측치)
+    - 결측치 확인
+    - 결측치 처리
+- [DataFrame](#dataframe)
+    - DataFrame 생성
+    - DataFrame 파일 저장
+    - 데이터셋 읽기
+- [DataFrame 메소드, 속성](#dataframe-메소드-속성)
+
 
 ## [Pandas](#목차)
 
@@ -23,7 +33,7 @@
         - Series: 1차원 자료구조를 표현
         - DataFrame: 2차원 행렬구조의 표(table)를 표현
 
-### Series
+## [Series](#목차)
 
 - **1차원** 자료구조
 - DataFrame(표)의 **한 행(row)** 이나 **한 열(column)** 을 표현한다.
@@ -167,6 +177,7 @@ s10 + s11
 ## [Boolean 인덱싱](#목차)
 - Series의 indexing 연산자에 boolean 리스트를 넣으면 True인 index의 값들만 조회한다. 
     - **원하는 조건의 값들을 조회**할 때 사용한다.
+
 |논리연산자|설명|
 |:-:|-|
 |&|and연산|
@@ -215,22 +226,151 @@ np.where(s10.between(2, 10), '범위안', '범위밖')
 > - 특정 조건의 원소들을 조회할 경우
 >     - boolean indexing 
 
+## [Series 메소드, 속성](#목차)
+
+![alt text](image.png)
+![alt text](image-1.png)
+
+## [결측치](#목차)
+- 모르는 값, 수집이 안된 값, 현재 가지고 있지 않은 값
+- None, numpy.nan, numpy.NAN
+- 결측치는 float 타입으로 처리된다.
+    
+### 결측치 확인
+- 각 함수/메소드는 각 원소 별로 결측치인지 확인해서 결과를 반환한다.
+- Numpy
+    - np.isnan(배열)
+    
+```python
+import numpy as np
+a = np.array([1,np.nan])
+np.isnan(a)
+```
+
+- Series/DataFrame
+    - Series/DataFrame객체.isnull() 또는 isna()
+    - Series/DataFrame객체.notnull() 또는 notna()
+
+### 결측치 처리
+
+- 제거 
+    - dropna()
+- 다른 값으로 대체 
+    - fillna()
+        - 평균, 중앙값, 최빈값을 주로 사용
 
 
+## [DataFrame](#목차)
+- **표** 를 다루는 Pandas의 타입
+- **행(row)와 열(column)** 으로 구성되어 있다.
+- 각 행과 각 열은 식별자를 가진다.
+    - **순번**
+        - 양수, 음수 index 두가지를 가진다.
+    - **이름**
+        - 명시적으로 지정한 행과 열의 이름을 말한다.
+        - index name과 column name은 **중복될 수 있다.**
+- 하나의 행과 하나의 열은 Series로 구성된다.
 
+### DataFrame 생성
+- `pd.DataFrame(data [, index=None, columns=None])`
+    - data 
+        - DataFrame을 구성할 값을 설정
+            - Series, List, ndarray를 담은 2차원 배열
+            - 열이름을 key로 컬럼의 값 value로 하는 딕션어리(사전)
+    - index
+        - index명으로 사용할 값 배열로 설정
+    - columns
+        - 컬럼명으로 사용할 값 배열로 설정
 
+```py
+# 중첩 리스트(튜플) 이용해서 사용 -> list 안에 list
+d1 = pd.DataFrame([[10, 20, 30],
+                   [100, 200, 300],
+                   [1, 2, 3]],
+                  columns=["C1","C2","C3"],
+                  index=["I1","I2","I3"])
 
+"""
+C1	C2	C3
+I1	10	20	30
+I2	100	200	300
+I3	1	2	3
+"""
 
+# dictionary 이용 생성 {"컬럼명":[컬럼에 들어갈 값들]}
+d = {
+    "id":['id-1','id-2','id-3','id-4','id-5'],
+    "korean":[100,50,70,60,90],
+    "english":[90,80,100,60,40]
+} # 리스트 원소 개수는 모두 동일해야 함
+grade = pd.DataFrame(d)
 
+"""
+id	korean	english
+0	id-1	100	90
+1	id-2	50	80
+2	id-3	70	100
+3	id-4	60	60
+4	id-5	90	40
+"""
+```
 
+### DataFrame 파일 저장
 
+- **`DataFrame객체.to_저장형식()`**
+- CSV 파일로 저장
+    - `DataFrame객체.to_csv(파일경로, sep=',', index=True, header=True)`
+    - encoding 방식: UTF-8 로 저장된다.
+- 엑셀로 저장
+    - `DataFrame객체.to_excel(파일경로, index=True, header=True)`
+- 기타 형식
+    - `grade.to_pickle("saved_data/grade.pkl")`
+    - `grade.to_html("saved_data/grade.html")`
 
+### 데이터셋 읽기
+- `pd.read_csv(파일경로, sep=',', header, index_col, na_values)`
+```py
+df8 = pd.read_excel("saved_data/grade1.xlsx", index_col=0)
+df9 = pd.read_pickle("saved_data/grade.pkl")
+df_list = pd.read_html("saved_data/grade.html")
+wc_df = pd.read_html("https://ko.wikipedia.org/wiki/FIFA_%EC%9B%94%EB%93%9C%EC%BB%B5")
 
+# select 결과를 DataFrame으로 로딩
+conn = pymysql.connect(host='127.0.0.1', port=3306,
+                       user='scott', password='tiger', db='hr_join')
+emp_sql = "select * from emp"
+emp_df = pd.read_sql(emp_sql, conn)
+conn.close()
+```
 
+## [Dataframe 메소드, 속성](#목차)
 
+![alt text](image-2.png)
+![alt text](image-3.png)
+
+### 컬럼이름/행이름 변경   
+
+- columns와 index 속성으로는 통째로 바꾸는 것은 가능하나 일부만 선택해서 변경하는 것은 안된다.
+    - `df.columns = ['새이름','새이름', ... , '새이름']`
+    - `df.columns[1] = '새이름'` 
+        - 이런식으로 개별적으로 변경은 안된다.
+
+- `DataFrame객체.rename(index=행이름변경설정, columns=열이름변경설정, inplace=False)`
+    - **개별 컬럼이름/행이름 변경** 하는 메소드
+    - 변경한 DataFrame을 반환
+    - 변경설정: 딕셔너리 사용
+        - {'기존이름':'새이름', ..}
+        - inplace: 원본을 변경할지 여부(boolean)        
+
+- `DataFrame객체.set_index(컬럼이름, inplace=False)`
+    - 특정 컬럼을 행의 index 명으로 사용
+    - 열이 index명이 되면서 그 컬럼은 Data Set 에서 제거된다.
+- `DataFrame객체.reset_index(inplace=False)`
+    - index를 첫번째 컬럼으로 복원
 
 
 
 
 ### [목차로 돌아가기](#목차)
 ## [이전 페이지](../README.md)
+
