@@ -18,8 +18,23 @@
 
 `Series`, `DataFrame`
 
-[13 일차: 데이터 집계](.)
+[13 일차: 데이터 정렬_집계](./md/13_데이터%20정렬_집계.md)
 -
+
+- 정렬
+- aggregate
+- Groupby
+- apply
+- cut
+
+[13 일차: 데이터 합치기](./md/13_데이터%20합치기.md)
+-
+
+- 정렬
+- aggregate
+- Groupby
+- apply
+- cut
 
 [14 일차: EDA](.)
 -

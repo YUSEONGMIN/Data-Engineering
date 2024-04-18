@@ -1,9 +1,9 @@
 ### [전체 목차](../../README.md)
 ### [이전 페이지](../README.md)
 
-# 12 일차
+# 14 일차
 
-`Series`, `DataFrame`
+`EDA`
 
 ## 목차
 
