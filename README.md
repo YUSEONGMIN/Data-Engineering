@@ -11,7 +11,7 @@ PLAYDATA 엔코아 데이터엔지니어링 과정
 | 25 - 27 | Deep Learning |
 | 28 - 33 | Convolutional Neural Network |
 | 34 - 38 | Semi Project |
-| 39 - 41 | Java Programming |
+| 39 - 41 | [Java Programming](./07_Java%20Programming/README.md) |
 | 42 - 47 | Spring Boot |
 | 48 - 49 | Web Basic |
 | 51 - -- | Final Project |

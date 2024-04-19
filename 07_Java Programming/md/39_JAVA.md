@@ -3,7 +3,10 @@
 
 # 39 일차
 
-Java
+- Java 설치
+- Java 환경변수 설정
+- vscode Java 세팅
+- Java 장점
 
 ## 목차
 
@@ -11,7 +14,9 @@ Java
     - Java 환경변수 설정
     - vscode Java 세팅
 - [사용법](#사용법)
-
+- [Java 특징](#java-특징)
+    - Java 장점
+    - Java 실행 과정
 
 ## [Java 설치](#목차)
 
@@ -93,17 +98,6 @@ JVM(Java Virtual Machine): 자바 가상머신
 1. java 파일을 class 파일로 컴파일
 2. JVM이 컴퓨터 운영체제가 이해할 수 있는 바이너리 코드로 변환
 3. 실행
-
-
-
-
-
-
-
-
-
-
-
 
 
 ### [목차로 돌아가기](#목차)
