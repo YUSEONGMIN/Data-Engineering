@@ -2,7 +2,9 @@
 ### [이전 페이지](../README.md)
 
 # 8 일차
-`DDL`
+
+- MySQL 설치
+- DDL: `CREATE`, `ALTER`, `DROP`, `TRUNCATE`
 
 ## 목차
 
@@ -42,12 +44,12 @@ GRANT ALL PRIVILEGES on *.* to scott@localhost;
 ```
 
 > ```
-> user                host
-> mysql.infoschema	localhost
-> mysql.session	    localhost
-> mysql.sys	        localhost
-> root	            localhost
-> scott	            localhost
+> user              host
+> mysql.infoschema  localhost
+> mysql.session     localhost
+> mysql.sys         localhost
+> root              localhost
+> scott             localhost
 > ```
 
 ### 데이터베이스 생성
@@ -102,7 +104,6 @@ DROP TABLE IF EXISTS member;
 
 SHOW TABLES;
 ```
-
 
 
 ### [목차로 돌아가기](#목차)

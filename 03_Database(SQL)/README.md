@@ -11,10 +11,14 @@
 [8 일차: DDL](./md/08_DDL.md)
 -
 
-- B
+- MySQL 설치
+- DDL: `CREATE`, `ALTER`, `DROP`, `TRUNCATE`
 
-[9 일차: SELECT](.)
+[9 일차: SELECT](./md/09_SELECT%20및%20함수.md)
 -
+
+- SELECT 기본구문: `WHERE 절`, `order by`
+- 함수: `문자열`, `숫자`, `날짜`, `조건 처리`, `타입 변환`, `CASE 문`
 
 [10 일차: 집계함수](.)
 -
