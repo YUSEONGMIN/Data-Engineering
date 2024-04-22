@@ -19,11 +19,16 @@
 -
 
 - [java 자료형-1](./md/40_Java%20자료형-1.md)
-    - 
-- [java 자료형-2]
+    - 변수 & 상수
+    - 정수형, 실수형, 불리언형, 문자형
+- [java 자료형-2]()
+    - array, list, map, set
 - java 기본함수
+    - print, Math, Random
 - java 조건문
+    - if else, switch/case
 - java 반복문
+    - for, while, for each, break, continue
 
 [41 일차: OOP](./)
 -
