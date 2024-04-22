@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class java_자료형_1 {
+public class java_자료형_1_2 {
     
     public static void main(String[] args) throws Exception {
         // 변수 선언 (정수)

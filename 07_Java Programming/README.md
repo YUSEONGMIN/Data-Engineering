@@ -15,11 +15,12 @@
 - vscode Java 세팅
 - Java 장점
 
-[40 일차: 기본 문법](./)
+40 일차: 기본 문법
 -
 
-- java 자료형-1
-- java 자료형-2
+- [java 자료형-1](./md/40_Java%20자료형-1.md)
+    - 
+- [java 자료형-2]
 - java 기본함수
 - java 조건문
 - java 반복문
