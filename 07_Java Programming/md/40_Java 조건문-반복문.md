@@ -3,18 +3,22 @@
 
 # 40 일차
 
+조건문, 반복문
 
 ## 목차
 
-- [Array](#array)
+- [조건문](#조건문)
+  - if else, 3항 연산자
+  - switch/case
+- [반복문](#반복문)
+  - for, while, for each
+  - break, continue
 
+## [조건문](#목차)
 
-## [Array](#목차)
+### if else
 
-
-
-자바 조건문
-if else
+```java
 int i = 10; 
 
 if (i < 3) {
@@ -24,9 +28,13 @@ if (i < 3) {
 } else {
   System.out.println("None");
 }
-3항 연산자
+```
+
+### 3항 연산자
+
 조건 ? 조건이 참일 때 : 조건이 거짓일 때
 
+```java
 boolean isMarried = true; 
 String str = isMarried ? "Yes" : "No";
 System.out.println(str);
@@ -38,13 +46,16 @@ if (isMarried) {
   str = "No";
 }
 System.out.println(str);
-조건
-and 조건: &&
-or 조건: ||
-not 조건: !
+```
+
+    and 조건: &&
+    or 조건: ||
+    not 조건: !
+
+```java
 boolean isMarried = true; 
 boolean isOld = false;
-String str; 
+String str;
 
 if (isMarried && isOld) { // 결혼을 했으면서, 나이가 많음 
   str = "1";
@@ -57,7 +68,11 @@ if (isMarried && isOld) { // 결혼을 했으면서, 나이가 많음
 }
 
 System.out.println(str);
-switch/case
+```
+
+### switch/case
+
+```java
 int month = 3;
 String monthString = "";
 switch (month) {  // 입력 변수의 자료형은 byte, short, char, int, enum, String만 가능하다.
@@ -71,24 +86,32 @@ switch (month) {  // 입력 변수의 자료형은 byte, short, char, int, enum,
     break;
 }
 System.out.println(monthString);
+```
 
+## [반복문](#목차)
 
+### for
 
-
-
-반복문
-for
+```java
 for (int i=0; i<10; i++) {
   System.out.println(i);
 }
-while
+```
+
+### while
+
+```java
 int x = 0;
 
 while (x<10) {
   System.out.println(x);
   x++;
 }
-for each
+```
+
+### for each
+
+```java
 int[] score = { 78, 70, 65, 98, 58 };
 int sum = 0;
 
@@ -96,26 +119,38 @@ for (int i : score) {
   sum += i; // sum = sum + i;
 }
 System.out.println("점수 합계 : " + sum); // 결과 : 369
+```
+
+```java
 ArrayList<String> numbers = new ArrayList<>(Arrays.asList("one", "two", "three"));
 
 for (String number : numbers) {
     System.out.println(number);
 }
-break: 만나는 즉시 반복문 전체 탈출
+```
+
+- break: 만나는 즉시 반복문 전체 탈출
+
+```java
 for (int i=0; i<10; i++) {
   if (i == 6) {
     break;
   }
   System.out.println(i);
 }
-continue: 만나면 해당 반복부분 탈출 후 다음반복실행
+```
+
+- continue: 만나면 해당 
+
+```java
+반복부분 탈출 후 다음반복실행
 for (int i=0; i<10; i++) {
   if (i == 6) {
     continue; // 6만 출력이 안됨 
   }
   System.out.println(i);
 }
-
+```
 
 
 ### [목차로 돌아가기](#목차)

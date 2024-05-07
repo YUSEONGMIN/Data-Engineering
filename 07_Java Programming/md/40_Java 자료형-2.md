@@ -10,7 +10,11 @@
 - [List](#list)
 - [ArrayList](#arraylist)
 - [Map](#map)
-
+  - HashMap
+- [Set](#set)
+  - 교집합
+  - 합집합
+  - 차집합
 
 ## [Array](#목차)
 
@@ -134,13 +138,12 @@ System.out.println(map.size());
 System.out.println(map.remove("people"));
 ```
 
+### HashMap
 
+Map 컬렉션 클래스에서 가장 많이 사용되는 클래스 중 하나  
+해시 알고리즘을 사용하여 많은 양의 데이터를 검색하는데 검색 속도가 매우 빠르다.
 
-HashMap
-Map 컬렉션 클래스에서 가장 많이 사용되는 클래스 중 하나입니다.
-해시 알고리즘(hash algorithm)을 사용하여 많은 양의 데이터를 검색하는데 검색 속도가 매우 빠르다.
-Alt text
-
+```java
 Map<String, String> map = new HashMap<String, String>();
 map.put("people", "사람");
 map.put("baseball", "야구");
@@ -150,15 +153,19 @@ System.out.println(map.containsKey("people"));
 System.out.println(map.size());
 System.out.println(map.keySet());  // [baseball, people] 출력
 System.out.println(map.remove("people"));
-java Set
+```
+
+## [Set](#목차)
+
 집합(Set) 자료형은 집합과 관련된 것을 쉽게 처리하기 위해 만든 것이다.
 
-Set 특징
-데이터를 비순차적으로 저장할 수 있다.
-삽입한 데이터가 순서대로 저장되지 않음
-수정 가능
-중복해서 삽입이 불가 (동일한 값은 하나만 저장 가능)
-집합 생성
+- 데이터를 비순차적으로 저장할 수 있다.
+- 삽입한 데이터가 순서대로 저장되지 않음
+- 수정 가능
+- 중복해서 삽입이 불가 (동일한 값은 하나만 저장 가능)
+
+```java
+// 집합 생성
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -168,7 +175,11 @@ public class Sample {
     System.out.println(set);  //  [e, H, l, o] 출력
   }
 }
-교집합
+```
+
+### 교집합
+
+```java
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -182,7 +193,11 @@ public class Sample {
     System.out.println(intersection);  // [4, 5, 6] 출력
   }
 }
-합집합
+```
+
+### 합집합
+
+```java
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -196,7 +211,11 @@ public class Sample {
     System.out.println(union);  // [1, 2, 3, 4, 5, 6, 7, 8, 9] 출력
   }
 }
-차집합
+```
+
+### 차집합
+
+```java
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -210,7 +229,11 @@ public class Sample {
     System.out.println(substract);  // [1, 2, 3] 출력
   }
 }
+```
+
 add 메서드는 집합 자료형에 값을 추가할 때 사용한다.
+
+```java
 import java.util.HashSet;
 
 public class Sample {
@@ -222,7 +245,11 @@ public class Sample {
     System.out.println(set);  // [Java, To, Jump] 출력
   }
 }
+```
+
 값을 한꺼번에 여러 개 추가할 때는 addAll 메서드를 사용한다.
+
+```java
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -234,7 +261,11 @@ public class Sample {
     System.out.println(set);  // [Java, To, Jump] 출력
   }
 }
+```
+
 remove 메서드는 특정 값을 제거할 때 사용한다.
+
+```java
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -245,15 +276,7 @@ public class Sample {
     System.out.println(set);  // [Java, Jump] 출력
   }
 }
-
-
-
-
-
-
-
-
-
+```
 
 ### [목차로 돌아가기](#목차)
 ## [이전 페이지](../README.md)
