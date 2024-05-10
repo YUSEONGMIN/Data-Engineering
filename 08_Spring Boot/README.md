@@ -11,6 +11,11 @@
 42일차
 -
 
+- Spring Boot 실습 환경 구축
+    - [Maven](./md/42_Maven.md)
+        - 라이브러리 의존성 주입, Build 예제
+    - [Gradle]
+- MVC 디자인 패턴
 
 43일차
 -
