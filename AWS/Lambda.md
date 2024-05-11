@@ -9,14 +9,14 @@ AWS 람다 크롤링 -> S3 / RDB 저장 -> 스케줄러 -> 슬랙 에러 전송
 # 목차
 - [람다 함수 생성](#람다-함수-생성)
 - [람다 모듈 추가](#람다에-모듈-추가)
-
+- [S3 연결](#s3-연결)
 
 
 ## [람다 함수 생성](#목차)
 
-![alt text](image.png)
+![alt text](./img3/image.png)
 
-![alt text](image-1.png)
+![alt text](./img3/image-1.png)
 
 `event`: 정보가 포함된 dict 타입의 객체  
 `context`: 람다 함수의 실행 환경 및 런타임 정보
@@ -35,15 +35,15 @@ def lambda_handler(event, context):
 `key`:`value` 형태의 데이터를 받아서 `event`에 전달 -> event["key"]로 조회
 
 
-![alt text](image-2.png)
-![alt text](image-3.png)
+![alt text](./img3/image-2.png)
+![alt text](./img3/image-3.png)
 
 코드 실행시간이 3초가 넘으면 에러 발생  
 -> 설정 편집
 
-![alt text](image-4.png)
+![alt text](./img3/image-4.png)
 
-![alt text](image-5.png)
+![alt text](./img3/image-5.png)
 
 메모리 및 시간 설정 (최대 15분)  
 (메모리 10240 하려면 AWS 따로 요청)
@@ -52,6 +52,7 @@ lambda_function.py
 
 ```py
 import json
+import boto3 # s3 접근하기 위한 모듈
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
@@ -81,15 +82,15 @@ def lambda_handler(event, context):
 > 코드 설명  
 > 구글 - python, AWS 검색 -> 게시글, 주소 수집
 
-![alt text](image-7.png)
+![alt text](./img3/image-7.png)
 
 변경사항 Deploy 후 Test
 
-![alt text](image-6.png)
+![alt text](./img3/image-6.png)
 
 테스트 이벤트 생성 Save -> Test
 
-![alt text](image-8.png)
+![alt text](./img3/image-8.png)
 
 -> requests 모듈이 없다는 에러 발생  
 -> `requests`, `pandas`, `bs4` 모듈 없음
@@ -106,54 +107,55 @@ cmd 또는 vscode terminal에서
 > conda create -n lambda python=3.12 -y
 > conda activate lambda
 (lambda) > mkdir python && cd python
-(lambda) python > pip install requests bs4 -t .
+(lambda) python > pip install requests bs4 boto3 -t .
 ```
 
 `pandas`는 람다에서 자체적으로 제공함
 
-![alt text](image-9.png)
+![alt text](./img3/image-9.png)
 
 해당 모듈들을 압축  
 
 dist-info 폴더들, README는 삭제해도 무방  
 -> 모듈 버전 확인용
 
-![alt text](image-10.png)
+![alt text](./img3/image-10.png)
 
 Lambda > Layers 이동 후 Create layer
 
-![alt text](image-11.png)
+![alt text](./img3/image-11.png)
 
 아까 압축한 파일 업로드 후 Create  
 (50MB 넘으면 안됨)
 
-![alt text](image-12.png)
+![alt text](./img3/image-12.png)
 
 Version ARN 복사
 
-![alt text](image-13.png)
+![alt text](./img3/image-13.png)
 
 Layers 클릭
 
-![alt text](image-14.png)
+![alt text](./img3/image-14.png)
 
 Add a layer
 
-![alt text](image-15.png)
+![alt text](./img3/image-15.png)
 
 AWS layers - AWSSDKPandas-Python312 - 8  
 람다에서 제공하는 판다스 모듈 추가
 
-![alt text](image-16.png)
+![alt text](./img3/image-16.png)
 
-![alt text](image-17.png)
+![alt text](./img3/image-17.png)
 
 Specify an ARN - ARN 주소 붙여넣기 - Verify  
-requests, bs4 모듈 추가
+requests, bs4, boto3 모듈 추가
 
-![alt text](image-18.png)
+![alt text](./img3/image-18.png)
 
-![alt text](image-19.png)
+![alt text](./img3/image-19.png)
 
 Test 결과
 
+# [S3 연결](#목차)
