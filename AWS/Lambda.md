@@ -9,8 +9,7 @@ AWS 람다 크롤링 -> S3 / RDB 저장 -> 스케줄러 -> 슬랙 에러 전송
 # 목차
 - [람다 함수 생성](#람다-함수-생성)
 - [람다 모듈 추가](#람다에-모듈-추가)
-- [S3 연결](#s3-연결)
-
+- [Slack에 에러 보내기](#slack에-에러-보내기)
 
 ## [람다 함수 생성](#목차)
 
@@ -158,4 +157,94 @@ requests, bs4, boto3 모듈 추가
 
 Test 결과
 
-# [S3 연결](#목차)
+# [Slack에 에러 보내기](#목차)
+
+Slack에 에러 보내는 방법
+- Webhook 이용
+    - [block-kit](https://api.slack.com/block-kit) 이용하면 다양한 기능 가능
+    - 스레드 추가 등등
+
+https://api.slack.com/ 이동
+
+![alt text](./img4/image.png)
+
+Your apps 클릭 (https://api.slack.com/apps)
+
+![alt text](./img4/image-1.png)
+
+sign in to your Slack account -> 로그인
+
+![alt text](./img4/image-2.png)
+
+Create New App
+
+![alt text](./img4/image-3.png)
+
+![alt text](./img4/image-4.png)
+
+From scratch - Create App
+
+![alt text](./img4/image-5.png)
+
+Activate Incoming Webhooks - On  
+Add New Webhook to Workspace  
+
+![alt text](./img4/image-6.png)
+
+적당한 채널을 만들거나 선택 후 허용
+
+![alt text](./img4/image-7.png)
+
+주소 Copy
+
+Lamda에서 lambda_function.py에 코드 추가
+
+![alt text](./img4/image-8.png)
+
+```py
+import json
+import requests
+import pandas as pd
+from bs4 import BeautifulSoup
+
+webhook_url = "https://hooks.slack.com/services/..복사한 주소"
+
+def send_slack(e):
+    payload = {"text": e}
+ 
+    requests.post(
+        url=webhook_url,
+        data=json.dumps(payload, default=str),
+        headers={'Content-Type': 'application/json'}
+    )
+
+def lambda_handler(event, context):
+    url = "https://www.google.com/search?"
+    headers = {"User-Agent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"}
+    
+    df = pd.DataFrame(columns=["q","title","href"])
+    q_lst = ["python", "AWS"]
+
+    try:
+        raise NameError("NameError 발생")
+        for i in range(len(q_lst)):
+            params = {"q" : q_lst[i]}
+            res = requests.get(url,params=params,headers=headers)
+            
+            if res.status_code == 200:
+                dom = BeautifulSoup(res.text, "html.parser")
+                title = [_.text for _ in dom.select("h3.LC20lb")]
+                href = [_["href"] for _ in dom.find_all("a", attrs={"jsname":"UWckNb"})]
+                df_new = pd.DataFrame({"q":q_lst[i], "title":title, "href":href})
+                df = pd.concat([df,df_new], ignore_index=True)
+        
+        return {
+            "df" : df.groupby("q").head(1).to_dict(orient="list")
+        }
+    except Exception as e:
+        send_slack(e)
+```
+
+Deploy 후 Test
+
+![alt text](./img4/image-9.png)
