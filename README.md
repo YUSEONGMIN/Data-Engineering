@@ -23,3 +23,5 @@ PLAYDATA 엔코아 데이터엔지니어링 과정
 | 75 - 77 | Docker Container |
 | 78 - 80 | Kubernetes Cluster |
 | 81 - 84 | Kubeflow |
+
+CI/CD
