@@ -199,3 +199,107 @@ buildspec.yml 실행
 빌드 스펙이 정상적으로 작동되면 ECS에 생성
 
 ![alt text](img/image-21.png)
+
+ECR 만든 후 CodeDeploy 배포
+
+다 완료하면
+springboot에서 수정 후 커밋하면
+ECR에 자동으로 반영
+
+## Amazon Elastic Container Service
+
+![alt text](img/image-22.png)
+
+Create cluster 
+
+![alt text](img/image-23.png)
+
+
+Task definitions
+
+![alt text](img/image-24.png)
+
+task role
+작업할 때 필요한 권한
+
+
+task execution role
+생성할 때 필요한 권한
+ECR 이미지 가져오기 권한
+
+![alt text](img/image-25.png)
+
+
+buildspec.yml 파일에 정의한
+ECS_CONTAINER_NAME
+
+ecs-springboot-container-yuseongmin
+
+Image URL
+ECR 레파지토리 주소
+
+![alt text](img/image-26.png)
+
+포트 변경
+
+
+HealthCheck 
+작동이 잘 되었는지 판단
+```
+CMD-SHELL,curl -f http://localhost:8080/api/v1/hello || exit 1
+```
+
+ECS
+
+![alt text](img/image-27.png)
+
+
+service 생성
+
+![alt text](img/image-28.png)
+
+
+Servic는 2가지 타입
+24시간 항상 떠있는 웹은 서비스로
+
+특정 프로그램이 끝나면 종료 (배치 프로그램) -> Task
+
+![alt text](img/image-29.png)
+
+Spring은 웹 서비스 -> Service
+Desired task
+정해진 숫자만큼 생성, 삭제
+
+EC2 - Security Groups
+
+default
+인바운드 룰
+custom tcp 8080 0.0.0.0/0 추가
+
+![alt text](img/image-30.png)
+
+![alt text](img/image-31.png)
+
+![alt text](img/image-32.png)
+
+
+http://{public ip}:8080/api/v1/hello
+
+![alt text](img/image-33.png)
+
+![alt text](img/image-34.png)
+
+![alt text](img/image-35.png)
+
+main 브랜치 권한이 있는 사람만 배포 가능
+완벽하게 로컬 테스트가 작동하고 소스코드가 깔끔할 때만 배포
+
+![alt text](img/image-36.png)
+
+![alt text](img/image-37.png)
+
+![alt text](img/image-38.png)
+
+![alt text](img/image-39.png)
+
+
