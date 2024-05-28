@@ -29,4 +29,8 @@
 - 서브쿼리
 
 [11 일차: JOIN](./md/11_Join.md)
--
+- 
+
+- JOIN
+- INNER JOIN
+- OUTER JOIN

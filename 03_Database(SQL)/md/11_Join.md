@@ -8,12 +8,12 @@
 
 ## 목차
 
-- [Join](#join)
+- [JOIN](#join)
+- [INNER JOIN](#inner-join)
+- [OUTER JOIN](#outer-join)
 
 
-
-
-## [Join](#목차)
+## [JOIN](#목차)
 
 - 2개 이상의 테이블에 있는 컬럼들을 합쳐서 가상의 테이블을 만들어 조회하는 방식을 말한다.
  	- 소스테이블 : 내가 먼저 읽어야 한다고 생각하는 테이블
@@ -31,13 +31,13 @@
     - Cross Join
         - 두 테이블의 곱집합을 반환한다.
 
-- INNER JOIN  
+## [INNER JOIN](#목차)  
 `FROM 테이블a INNER JOIN 테이블b ON 조인조건 `
 - inner는 생략 할 수 있다.
 
 
 ```sql
--- 직원의 ID(emp.emp_id), 이름(emp.emp_name), 입사년도(emp.hire_date), 소속부서이름(dept.dept_name)을 조회
+-- 직원의 ID, 이름, 입사년도, 소속부서이름을 조회
 select 
     emp.emp_id, emp.emp_name, emp.hire_date, dept.dept_name
 from
@@ -46,6 +46,7 @@ from
     dept ON emp.dept_id = dept.dept_id;
 -- emp 테이블과 dept 테이블을 합친다.
 -- emp.dept_id 값과 dept.dept_id가 같은 행끼리 합쳐라. (한 행으로 합쳐라)
+
 select 
     e.emp_id, e.emp_name, e.hire_date, d.dept_name
 from
@@ -54,7 +55,7 @@ from
     dept d ON e.dept_id = d.dept_id;
 --  from emp e -> emp 테이블 이름을 e로 하겠다. -> 테이블 이름의 별칭
 
--- 직원의 ID(emp.emp_id)가 100인 직원의 직원_ID(emp.emp_id), 이름(emp.emp_name), 입사년도(emp.hire_date), 소속부서이름(dept.dept_name)을 조회.
+-- 직원의 ID가 100인 직원의 직원_ID, 이름, 입사년도, 소속부서이름을 조회.
 select 
     e.emp_id, e.emp_name, e.hire_date, d.dept_name
 from
@@ -64,7 +65,7 @@ from
 where
     e.emp_id = 100;
 
--- 직원_ID(emp.emp_id), 이름(emp.emp_name), 급여(emp.salary), 담당업무명(job.job_title), 소속부서이름(dept.dept_name)을 조회
+-- 직원_ID, 이름, 급여, 담당업무명, 소속부서이름을 조회
 select 
     e.emp_id, e.emp_name, e.salary, j.job_title, d.dept_name
 from
@@ -74,7 +75,7 @@ from
         join
     dept d ON e.dept_id = d.dept_id;
 
--- 부서_ID(dept.dept_id)가 30인 부서의 이름(dept.dept_name), 위치(dept.loc), 그 부서에 소속된 직원의 이름(emp.emp_name)을 조회.
+-- 부서_ID가 30인 부서의 이름, 위치, 그 부서에 소속된 직원의 이름을 조회.
 select 
     d.dept_name, d.loc, e.emp_name
 from
@@ -84,7 +85,7 @@ from
 where
     d.dept_id = 30;
 
--- 직원의 ID(emp.emp_id), 이름(emp.emp_name), 급여(emp.salary), 급여등급(salary_grade.grade) 를 조회. 급여 등급 오름차순으로 정렬
+-- 직원의 ID, 이름, 급여, 급여등급를 조회. 급여 등급 오름차순으로 정렬
 select 
     e.emp_id,
     e.emp_name,
@@ -94,19 +95,13 @@ from
     emp e
         join
     salary_grade s ON salary between s.low_sal and s.high_sal;
+```
 
-
-
-
-
-
-/* ****************************************************
 Self 조인
 - 물리적으로 하나의 테이블을 두개의 테이블처럼 조인하는 것.
-**************************************************** */
 
--- 직원 ID가 101인 직원의 직원의 ID(emp.emp_id), 이름(emp.emp_name), 상사이름(emp.emp_name)을 조회
-
+```sql
+-- 직원 ID가 101인 직원의 직원의 ID, 이름, 상사이름을 조회
 select 
     e.emp_id, e.emp_name, m.emp_name 'mgr_name'
 from
@@ -117,10 +112,7 @@ where
     e.emp_id = 101;
 ```
 
-
-
-/* ****************************************************************************
-외부 조인 (Outer Join)
+## [OUTER JOIN](#목차)
 - 불충분 조인
     - 조인 연산 조건을 만족하지 않는 행도 포함해서 합친다
 종류
@@ -132,10 +124,8 @@ where
 from 테이블a [LEFT | RIGHT] OUTER JOIN 테이블b ON 조인조건
 - OUTER는 생략 가능.
 
-**************************************************************************** */
-
-
--- 직원의 id(emp.emp_id), 이름(emp.emp_name), 급여(emp.salary), 부서명(dept.dept_name), 부서위치(dept.loc)를 조회. 
+```sql
+-- 직원의 id, 이름, 급여, 부서명, 부서위치를 조회. 
 -- 부서가 없는 직원의 정보도 나오도록 조회. dept_name의 내림차순으로 정렬한다.
 -- => source 테이블(메인정보 테이블): EMP, target 테이블(부가정보 테이블): DEPT
 select 
@@ -164,102 +154,24 @@ select * from emp where dept_id is null;
 -- 175, 178, 183, 184, 185
 
 
--- 모든 직원의 id(emp.emp_id), 이름(emp.emp_name), 부서_id(emp.dept_id)를 조회하는데
--- 부서_id가 80 인 직원들은 부서명(dept.dept_name)과 부서위치(dept.loc) 도 같이 출력한다. (부서 ID가 80이 아니면 null이 나오도록)
--- (부서 ID가 80이 아니면 null이 나오도록)
+-- 모든 직원의 id, 이름, 부서_id를 조회하는데
+-- 부서_id가 80 인 직원들은 부서명과 부서위치 도 같이 출력한다. 
+-- (부서 ID가 80이 아니면 null이 나오도록, 부서 ID가 80이 아니면 null이 나오도록)
 select 
     e.emp_id, e.emp_name, e.dept_id, d.dept_name, d.loc
 from
     emp e
         left join
     dept d ON e.dept_id = d.dept_id and d.dept_id = 80;
-        
--- TODO: 직원_id(emp.emp_id)가 100, 110, 120, 130, 140인 
---  직원의 ID(emp.emp_id),이름(emp.emp_name), 업무명(job.job_title) 을 조회. 업무명이 없을 경우 '미배정' 으로 조회
-select 
-    e.emp_id, e.emp_name, ifnull(job_title, '미배정')
-from
-    emp e
-        left join
-    job j ON e.job_id = j.job_id
-where
-    e.emp_id in (100 , 110, 120, 130, 140);
 
 -- 오라클 조인 문법
 select e.emp_name, d.dept_name
 from emp e, dept d
 where e.dept_id = d.dept_id
 and 추가조건;
-
--- TODO: 부서 ID(dept.dept_id), 부서이름(dept.dept_name)과 그 부서에 속한 직원들의 수를 조회. 직원이 없는 부서는 0이 나오도록 조회하고 직원수가 많은 부서 순서로 조회.
--- count(*) => 행수를 조회 emp 정보가 없어도 1이 나옴
-select
-    d.dept_id, d.dept_name, count(e.emp_id) "직원수"
-from
-    emp e
-        right join
-    dept d ON e.dept_id = d.dept_id
-group by d.dept_id, d.dept_name
-order by 3 desc;
-
-
--- TODO: EMP 테이블에서 부서_ID(emp.dept_id)가 90 인 모든 직원들의 id(emp.emp_id), 이름(emp.emp_name), 상사이름(emp.emp_name), 입사일(emp.hire_date)을 조회. 
--- 입사일은 yyyy/mm/dd 형식으로 출력
-select 
-    e.emp_id, e.emp_name, m.emp_name "상사이름", date_format(e.hire_date, '%Y/%m/%d') "hire_date"
-from
-    emp e
-        left join
-    emp m ON e.mgr_id = m.emp_id
-where e.dept_id = 90;
-
-
--- TODO 2003년~2005년 사이에 입사한 모든 직원의 id(emp.emp_id), 이름(emp.emp_name), 업무명(job.job_title), 급여(emp.salary), 입사일(emp.hire_date),
--- 상사이름(emp.emp_name), 상사의입사일(emp.hire_date), 소속부서이름(dept.dept_name), 부서위치(dept.loc)를 조회.
-select 
-    e.emp_id,
-    e.emp_name,
-    j.job_title,
-    e.salary,
-    e.hire_date,
-    m.emp_name "상사이름",
-    m.hire_date "상사입사일",
-    d.dept_name,
-    d.loc
-from
-    emp e
-        left join
-    job j ON e.job_id = j.job_id
-        left join
-    emp m ON e.mgr_id = m.emp_id
-        left join
-    dept d ON e.dept_id = d.dept_id
-where
-    year(e.hire_date) between 2003 and 2005;
-
-
-
+```
 
 인수(argument)는 컬럼
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ### [목차로 돌아가기](#목차)
