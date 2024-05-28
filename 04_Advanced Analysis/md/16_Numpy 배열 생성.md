@@ -3,8 +3,12 @@
 
 # 16 일차
 
-Numpy
+Numpy 배열 생성
 
+- `Numpy`, `ndarray`
+- `zeros`, `ones`, `full`
+- `arange`, `linspace`
+- np.random: `seed`, `rand`, `normal`, `randint`, `choice`
 
 
 ## 목차
@@ -14,6 +18,7 @@ Numpy
     - [동일한 값들로 구성된 배열](#동일한-값들로-구성된-배열)
     - [특정 범위내에서 동일한 간격의 값들로 구성된 배열](#특정-범위내에서-동일한-간격의-값들로-구성된-배열)
     - [난수를 원소로 하는 ndarray 생성](#난수를-원소로-하는-ndarray-생성)
+
 
 
 

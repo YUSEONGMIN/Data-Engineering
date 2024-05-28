@@ -46,11 +46,23 @@
 - 히스토그램
 - 상자그래프
 
-[16 일차: Numpy](.)
+[16 일차: Numpy 배열 생성](./md/16_Numpy%20배열%20생성.md)
 -
 
-[18 일차: 머신러닝 데이터 전처리](.)
+- `ndarray`
+- `zeros`, `ones`, `full`
+- `arange`, `linspace`
+- np.random: `seed`, `rand`, `normal`, `randint`, `choice`
+
+[17 일차: Numpy 배열 연산](./md/17_Numpy%20배열%20연산.md)
 -
+
+
+
+[18 일차: 머신러닝 데이터 전처리](./md/18_ML%20데이터%20전처리.md)
+-
+
+
 
 [19 일차: 머신러닝 평가지표](.)
 -
