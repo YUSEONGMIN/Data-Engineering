@@ -10,6 +10,10 @@ Numpy
 ## 목차
 
 - [Numpy](#numpy)
+- [배열(ndarray)](#배열ndarray)
+    - [동일한 값들로 구성된 배열](#동일한-값들로-구성된-배열)
+    - [특정 범위내에서 동일한 간격의 값들로 구성된 배열](#특정-범위내에서-동일한-간격의-값들로-구성된-배열)
+    - [난수를 원소로 하는 ndarray 생성](#난수를-원소로-하는-ndarray-생성)
 
 
 
@@ -50,7 +54,7 @@ Numpy
 - **크기 (size)**
     - 배열내 원소의 총 개수
 
-## 배열(ndarray)
+## [배열(ndarray)](#목차)
 
 - Numpy에서 제공하는 자료구조. N 차원 배열 객체
 - 같은 타입의 값들만 가질 수 있다.
@@ -81,6 +85,7 @@ Numpy
 > - **데이터 타입**
 >     - 문자열과 numpy 모듈에서 제공하는 변수를 통해 지정할 수 있다.
 
+---
 
 |분류|문자열|numpy 변수|
 |-|-|-|
@@ -136,7 +141,7 @@ a4 = np.array(l3, dtype="uint8")
 a5 = np.array([l1, l2, l3], dtype="float64")
 ```
 
-### 동일한 값들로 구성된 배열
+### [동일한 값들로 구성된 배열](#목차)
 
 #### zeros(shape [, dtype])
 - 영벡터 생성 : 원소들을 0으로 채운 배열
@@ -170,7 +175,7 @@ a16 = np.ones_like(a5)
 a17 = np.full_like(a5, fill_value=3.2)
 ```
 
-### 특정 범위내에서 동일한 간격의 값들로 구성된 배열
+### [특정 범위내에서 동일한 간격의 값들로 구성된 배열](#목차)
 
 #### arange(start, stop, step, dtype)
 - start에서 stop 범위에서 step의 일정한 간격의 값들로 구성된 배열 리턴  
@@ -203,7 +208,7 @@ np.linspace(0, 1, num=10, endpoint=False)
 > array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
 ```
 
-### 난수를 원소로 하는 ndarray 생성
+### [난수를 원소로 하는 ndarray 생성](#목차)
 - random 패키지에서 제공하는 함수들을 이용해 생성
 
 #### np.random.seed(시드값)
@@ -235,10 +240,8 @@ np.random.seed(0)
 np.random.rand(3, 2, 10)
 ```
 
-### 정규분포를 따르는 난수
-
 #### np.random.normal(loc=0.0, scale=1.0, size=None) 
-
+- 정규분포를 따르는 난수
 - loc: 평균
 - scale: 표준편차
 - loc, scale 생략시 표준정규 분포를 따르는 난수를 제공 
@@ -267,9 +270,8 @@ v.mean(), v.std()
 plt.hist(v, bins=100);
 ```
 
-### 임의의 정수를 가지는 배열
-
 #### np.random.randint(low, high=None, size=None, dtype='int32')
+- 임의의 정수를 가지는 배열
 - low ~ high 사이의 정수 리턴. high는 포함안됨
 - high 생략시 0 ~ low 사이 정수 리턴. low는 포함안됨
 - size : 배열의 크기. 다차원은 튜플로 지정 기본 1개
